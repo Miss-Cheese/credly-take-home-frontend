@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import HeroList from './components/heroList'
 import './App.css';
 
 const URL = "http://localhost:3000";
@@ -22,6 +23,7 @@ function App() {
       <header className="App-header">
         Saviors of the Universe
       </header>
+      <HeroList users={users}/>
     </div>
   );
 }
