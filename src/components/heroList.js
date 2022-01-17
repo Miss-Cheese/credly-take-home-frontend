@@ -7,6 +7,7 @@ function HeroList(props) {
 
     const handleClick = (user) => {
         setBadgesModal(true)
+        props.setHero(user)
     }
 
     return (
@@ -21,7 +22,7 @@ function HeroList(props) {
                 </div>
             ))}
         </div>
-        {badgesModal && <BadgesModal badgesModal={badgesModal} setBadgesModal={setBadgesModal} badges={props.badges}/>}
+        {badgesModal && <BadgesModal badgesModal={badgesModal} setBadgesModal={setBadgesModal} badges={props.badges} issueBadge={props.issueBadge}/>}
         </>
     )
 }

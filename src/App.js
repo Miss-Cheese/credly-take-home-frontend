@@ -10,6 +10,7 @@ function App() {
 
   const [users, setUsers] = useState([])
   const [badges, setBadges] = useState([])
+  const [hero, setHero] = useState('')
 
   const fetchUsers = () => {
     const request = fetch(`${URL}/users`)
@@ -41,9 +42,8 @@ function App() {
   }
 
   useEffect(fetchBadges, [])
-  console.log(badges)
 
-  const issueBadge = (user) => {
+  const issueBadge = (badge) => {
 
     const request = fetch(
       `/v1/organizations/${ORG_ID}/badges`,
@@ -55,9 +55,9 @@ function App() {
           "Authorization": `Basic ${authorizationToken}`
         },
         body: JSON.stringify({
-          badge_template_id: '40ebaf9c-2d66-46f4-a398-c816e0bb9409',
+          badge_template_id: badge.id,
           issued_at: new Date(),
-          recipient_email: user.email
+          recipient_email: hero.email
         })
       }
     )
@@ -70,9 +70,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        Saviors of the Universe
+        Robosaviors of the Universe
       </header>
-      <HeroList users={users} issueBadge={issueBadge} badges={badges}/>
+      <HeroList users={users} issueBadge={issueBadge} badges={badges} setHero={setHero}/>
     </div>
   );
 }

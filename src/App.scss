@@ -39,14 +39,14 @@
   position: fixed;
   top: 150px;
   left: 400px;
-  min-width: 700px;
+  min-width: 500px;
   min-height: 500px;
   background-color: yellow;
   border: 5px;
   border-radius: 5%;
 
   .close-button {
-    display: block;
+    position: fixed;
   }
 }
 

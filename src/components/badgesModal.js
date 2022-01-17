@@ -2,15 +2,12 @@ import React from 'react';
 
 function BadgesModal(props) {
 
-    console.log(props.badges)
-
     const handleClick = () => {
         props.setBadgesModal(false)
     }
 
     const handleBadgeSubmit = (badge) => {
-        debugger
-        console.log(badge)
+       props.issueBadge(badge)
     }
 
     return (
